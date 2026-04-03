@@ -62,6 +62,7 @@ df.to_csv("steam_games.csv", index=False)
 df["price"] = (
     df["price_text"]
       .str.replace("€", "", regex=False) # Remove Euro symbol
+      .str.replace("$", "", regex=False) # Remove Dollar symbol
       .str.replace(",", ".", regex=False) # Replace European decimal comma with dot
       .replace("Free", "0.0") # Replace "Free" with "0.0"
       .astype(float)
